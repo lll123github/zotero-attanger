@@ -1,4 +1,6 @@
 directory = Root Directory:
+directory-windows = Windows Root Directory:
+directory-linux = Linux Root Directory:
 choose-dir = 
     .label = Choose…
 setting = Settings

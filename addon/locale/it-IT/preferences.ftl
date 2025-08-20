@@ -1,4 +1,6 @@
 directory = Directory di base:
+directory-windows = Directory di base Windows:
+directory-linux = Directory di base Linux:
 choose-dir = 
     .label = Scegli…
 setting = Impostazioni

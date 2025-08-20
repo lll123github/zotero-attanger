@@ -1,4 +1,6 @@
 directory = Stammverzeichnis:
+directory-windows = Windows Stammverzeichnis:
+directory-linux = Linux Stammverzeichnis:
 choose-dir =
     .label = Auswählen...
 setting = Einstellungen

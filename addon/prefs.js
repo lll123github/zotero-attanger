@@ -4,8 +4,12 @@ pref("extensions.zotero.__addonRef__.attachType", "linking");
 pref("extensions.zotero.__addonRef__.subfolderFormat", `{{collection}}`);
 pref("extensions.zotero.__addonRef__.slashAsSubfolderDelimiter", true);
 pref("extensions.zotero.__addonRef__.sourceDir", "");
+pref("extensions.zotero.__addonRef__.sourceDirWindows", "");
+pref("extensions.zotero.__addonRef__.sourceDirLinux", "");
 pref("extensions.zotero.__addonRef__.readPdfTitle", "nonCJK");
 pref("extensions.zotero.__addonRef__.destDir", "");
+pref("extensions.zotero.__addonRef__.destDirWindows", "");
+pref("extensions.zotero.__addonRef__.destDirLinux", "");
 pref("extensions.zotero.__addonRef__.autoMove", true);
 
 pref("extensions.zotero.__addonRef__.attachNewFile.shortcut", "Ctrl + I");

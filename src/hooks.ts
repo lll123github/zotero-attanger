@@ -3,7 +3,7 @@ import { getString, initLocale } from "./utils/locale";
 import { registerPrefsScripts } from "./modules/preferenceScript";
 import { createZToolkit } from "./utils/ztoolkit";
 import Menu from "./modules/menu";
-// import { getPref } from "./utils/prefs";
+import { migrateDirectoryPreferences } from "./utils/prefs";
 
 async function onStartup() {
   await Promise.all([
@@ -12,6 +12,10 @@ async function onStartup() {
     Zotero.uiReadyPromise,
   ]);
   initLocale();
+  
+  // 迁移旧的目录配置到新的平台特定配置
+  migrateDirectoryPreferences();
+  
   Zotero.PreferencePanes.register(
     {
       pluginID: config.addonID,

@@ -13,17 +13,30 @@
       <label data-l10n-id="source-intro"></label>
       <separator class="thin" />
       <hbox align="center">
-        <label data-l10n-id="directory"></label>
+        <label data-l10n-id="directory-windows"></label>
         <html:input
-          id="source-dir"
+          id="source-dir-windows"
           type="text"
           readonly="true"
           flex="1"
-          preference="extensions.zotero.__addonRef__.sourceDir"
+          preference="extensions.zotero.__addonRef__.sourceDirWindows"
           style="background: none; border: none"
         >
         </html:input>
-        <button id="choose-source-dir" data-l10n-id="choose-dir"></button>
+        <button id="choose-source-dir-windows" data-l10n-id="choose-dir"></button>
+      </hbox>
+      <hbox align="center">
+        <label data-l10n-id="directory-linux"></label>
+        <html:input
+          id="source-dir-linux"
+          type="text"
+          readonly="true"
+          flex="1"
+          preference="extensions.zotero.__addonRef__.sourceDirLinux"
+          style="background: none; border: none"
+        >
+        </html:input>
+        <button id="choose-source-dir-linux" data-l10n-id="choose-dir"></button>
       </hbox>
       <hbox align="center">
         <label data-l10n-id="read-pdf-title"></label>
@@ -82,17 +95,30 @@
       <label data-l10n-id="dest-intro"></label>
       <separator class="thin" />
       <hbox align="center">
-        <label data-l10n-id="directory"></label>
+        <label data-l10n-id="directory-windows"></label>
         <html:input
-          id="dest-dir"
+          id="dest-dir-windows"
           type="text"
           readonly="true"
           flex="1"
-          preference="extensions.zotero.__addonRef__.destDir"
+          preference="extensions.zotero.__addonRef__.destDirWindows"
           style="background: none; border: none"
         >
         </html:input>
-        <button id="choose-dest-dir" data-l10n-id="choose-dir"></button>
+        <button id="choose-dest-dir-windows" data-l10n-id="choose-dir"></button>
+      </hbox>
+      <hbox align="center">
+        <label data-l10n-id="directory-linux"></label>
+        <html:input
+          id="dest-dir-linux"
+          type="text"
+          readonly="true"
+          flex="1"
+          preference="extensions.zotero.__addonRef__.destDirLinux"
+          style="background: none; border: none"
+        >
+        </html:input>
+        <button id="choose-dest-dir-linux" data-l10n-id="choose-dir"></button>
       </hbox>
 
       <separator class="thin" />

@@ -1,4 +1,6 @@
 directory = 根目录:
+directory-windows = Windows 根目录:
+directory-linux = Linux 根目录:
 choose-dir = 
     .label = 选择…
 setting = 设置

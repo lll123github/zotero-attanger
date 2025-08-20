@@ -1,7 +1,7 @@
 /*eslint no-constant-condition: ["error", { "checkLoops": false }]*/
 import { getString } from "../utils/locale";
 import { config } from "../../package.json";
-import { getPref, setPref } from "../utils/prefs";
+import { getPref, setPref, getPlatformSpecificDir, setPlatformSpecificDir } from "../utils/prefs";
 import { waitUntil, waitUtilAsync } from "../utils/wait";
 import comparison from "string-comparison";
 import { registerShortcut } from "../utils/shortcut";
@@ -1078,8 +1078,8 @@ async function removeEmptyFolder(path: string | nsIFile) {
   }
   const folder = Zotero.File.pathToFile(path);
   let rootFolders = [Zotero.getStorageDirectory().path];
-  const source_dir = getPref("sourceDir") as string;
-  const dest_dir = getPref("destDir") as string;
+  const source_dir = getPlatformSpecificDir("sourceDir");
+  const dest_dir = getPlatformSpecificDir("destDir");
   if (source_dir != "") {
     rootFolders.push(source_dir);
   }
@@ -1174,7 +1174,14 @@ async function addSuffixToFilename(filename: string, suffix?: string) {
 }
 
 async function checkDir(prefName: string, prefDisplay: string) {
-  let dir = getPref(prefName);
+  // 使用平台特定的目录获取函数
+  let dir: string;
+  if (prefName === "sourceDir" || prefName === "destDir") {
+    dir = getPlatformSpecificDir(prefName as 'sourceDir' | 'destDir');
+  } else {
+    dir = getPref(prefName) as string;
+  }
+  
   if (typeof dir !== "string" || !(await IOUtils.exists(dir))) {
     // @ts-ignore window
     const fp = new window.FilePicker();
@@ -1187,7 +1194,12 @@ async function checkDir(prefName: string, prefDisplay: string) {
     dir = PathUtils.normalize(fp.file);
 
     if (typeof dir === "string") {
-      setPref(prefName, dir);
+      // 使用平台特定的目录设置函数
+      if (prefName === "sourceDir" || prefName === "destDir") {
+        setPlatformSpecificDir(prefName as 'sourceDir' | 'destDir', dir);
+      } else {
+        setPref(prefName, dir);
+      }
       return dir;
     } else {
       new ztoolkit.ProgressWindow(config.addonName)
